@@ -12,5 +12,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [App\Http\Controllers\SourceController::class, 'index']);
+Route::get('/', [App\Http\Controllers\Controller::class, 'index']);
+Route::post('/import', [App\Http\Controllers\Controller::class, 'import'])->name('file-import');
