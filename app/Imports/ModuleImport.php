@@ -5,9 +5,9 @@ namespace App\Imports;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use App\Models\Source;
+use App\Models\Module;
 
-class SourceImport implements ToCollection, WithHeadingRow
+class ModuleImport implements ToCollection, WithHeadingRow
 {
     /**
     * @param Collection $collection
@@ -21,11 +21,10 @@ class SourceImport implements ToCollection, WithHeadingRow
             try{
                 $data[] = [
 
-                'Company_Name' => $row['company_name'],
-                'Company_Catagory' => $row['company_catagory'],
-                'Company_Type'=> $row['company_type'],
-                'Company_Address' => $row['company_address'],
-                'Company_Status' => $row['company_status'],
+                'Module_Caption' => $row['company_name'],
+                'Commercial_Name' => $row['company_catagory'],
+                'EngineModel_ID'=> $row['company_type'],
+                'ModuleSplit_percentage_overhaulEngine' => $row['company_address'],
                 'CreatedBy' => 'Salah',
                 'CreationDate' => now(),
                 'ModifiedBy'=> 'Salah',
@@ -33,18 +32,14 @@ class SourceImport implements ToCollection, WithHeadingRow
 
                 ];
 
-            
             }
             catch(Exception $e){
                 dd($row, $e);
             }
             
         }
-
-        $table = \DB::table('SOURCES_LIST');
+        $table = \DB::table('MODULES_LIST');
         $table->insert($data);
-
-
     }
 
     public function headingRow(): int
