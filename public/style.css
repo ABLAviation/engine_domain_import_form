@@ -1,0 +1,25 @@
+body{
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.wrapper{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.form-wrapper{
+    height: 300px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background: rgb(244, 244, 244);
+    border: 2px dashed rgb(152, 74, 167)
+}
