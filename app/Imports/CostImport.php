@@ -21,7 +21,7 @@ class CostImport implements WithMultipleSheets
     {
         return [
 
-            // 'SOURCES'  => new SourceImport(),
+            'SOURCES'  => new SourceImport(),
             'ENG-MOD'  => new EngModImport(),
             // 'MODULES'  => new ModuleImport(),
             // 'ENG-FACT' => new EngFactImport(),

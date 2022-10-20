@@ -26,9 +26,9 @@ class SourceImport implements ToCollection, WithHeadingRow
                 'Company_Type'=> $row['company_type'],
                 'Company_Address' => $row['company_address'],
                 'Company_Status' => $row['company_status'],
-                'CreatedBy' => 'Salah',
+                'CreatedBy' => 'Manal',
                 'CreationDate' => now(),
-                'ModifiedBy'=> 'Salah',
+                'ModifiedBy'=> 'Manal',
                 'ModificationDate' => now()
 
                 ];

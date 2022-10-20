@@ -21,9 +21,17 @@ class Controller extends BaseController
 
     function import(Request $request){
 
+        try{
 
-        Excel::import(new CostImport, $request->file('file'));
-        return back();
+
+            Excel::import(new CostImport, $request->file('file'));
+      
+        }
+        catch(Exception $e){
+            echo $e;
+        }
+
+        // return back();
 
     }
 }
