@@ -15,16 +15,22 @@ class ModuleImport implements ToCollection, WithHeadingRow
     public function collection(Collection $collection)
     {
      
+        
         $data = [];
         foreach ($collection as $row) 
         {
             try{
+
+                $ID_ENGMOD = \DB::table('ENGINE_MODEL')->select('ID_ENGINE_MODEL')
+                                                       ->where('ESN_Description','like', $row['esn'])
+                                                       ->first()->ID_ESN;
+
                 $data[] = [
 
-                'Module_Caption' => $row['company_name'],
-                'Commercial_Name' => $row['company_catagory'],
-                'EngineModel_ID'=> $row['company_type'],
-                'ModuleSplit_percentage_overhaulEngine' => $row['company_address'],
+                'Module_Caption' => $row['module_caption'],
+                'Commercial_Name' => $row['commercial_name'],
+                'EngineModel_ID'=> $ID_ENGMOD,
+                'ModuleSplit_percentage_overhaulEngine' => $row['moduleSplit_percentage_overhaul_engine'],
                 'CreatedBy' => 'Salah',
                 'CreationDate' => now(),
                 'ModifiedBy'=> 'Salah',

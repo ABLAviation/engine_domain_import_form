@@ -79,6 +79,7 @@ $(document).ready(function () {
         // };
         // reader.readAsDataURL(file);
 
+
     });
 
 
