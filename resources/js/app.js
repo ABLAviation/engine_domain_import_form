@@ -13,6 +13,11 @@ $(document).ready(function () {
 
     let file;
 
+
+    $('.download-button').on('click', function(){
+        console.log('okk');
+        $('#download-template').click();
+    });
     $('#form').on('drop dragdrop', function (event) {
         event.preventDefault();
         $("#form").removeClass('dragging');

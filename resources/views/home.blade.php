@@ -32,21 +32,23 @@
                         <div class="d-flex justify-content-center mt-3 mb-1">
                             <span style="font-size: 0.8rem;">Download The Import Template</span>
                         </div>
-                        <div class="d-flex justify-content-center download-file-area mb-2">
+                        <a id="download-template" href="files/LLP_Costs_Templates.xlsx"
+                            class="d-flex justify-content-center download-file-area mb-2" download>
                             <div style="width: 75%; border-color: lightgrey;"
                                 class="download-button d-flex align-items-center justify-content-between border rounded pt-3 pb-3 ps-2 pe-2">
                                 <div class="d-flex gap-2 align-items-center file-info">
                                     <!-- <i style="color: darkgreen;" class="fa-regular fa-file-excel fa-2xl"></i> -->
                                     <img style="width: 30px;" src="images/xlsx_icon.png">
                                     <span class="file-name">
-                                        LLP_Costs_Template_File.xlsx
+                                        LLP_Costs_Template.xlsx
                                     </span>
                                 </div>
                                 <span class="download-button">
                                     <i style="color: #9156b7;" class="fa-solid fa-cloud-arrow-down me-2"></i>
                                 </span>
+                                <!-- <a id="download-template" href="files/LLP_Costs_Template.xlsx" download></a> -->
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 
@@ -72,7 +74,8 @@
                                 <div style="position: relative;; z-index: 2" class="upload-files-images d-flex mt-3">
                                     <img style="width: 180px;" src="images/import_files.png" alt="">
                                 </div>
-                                <div style="position: relative;; z-index: 2" class="upload-options d-flex flex-column align-items-center">
+                                <div style="position: relative;; z-index: 2"
+                                    class="upload-options d-flex flex-column align-items-center">
                                     <div>
                                         <span style="font-weight: 600; font-size: 1.2rem">Drag & Drop file to
                                             upload</span>
@@ -88,7 +91,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div style="opacity: 0.1; " class="background-image position-absolute">
+                                <div style="opacity: 0.15; " class="background-image position-absolute">
                                     <i class="fa-solid fa-cloud-arrow-up fa-10x"></i>
                                 </div>
                             </div>

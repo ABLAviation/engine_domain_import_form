@@ -31,6 +31,16 @@ body{
     z-index: 1;
 }
 
+a, a:focus, a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+
+.download-button:hover, .download-button i:hover{
+    background: transparent;
+    color: inherit;
+}
+
 /* Button CSS */
 /* .button-69 {
   background-color: initial;
