@@ -9,7 +9,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
@@ -20,34 +20,51 @@
 </head>
 
 <body class="antialiased">
-    <div class="wrapper">
-        <h2>Import LLP Costs Data</h2>
-        <div class="form-wrapper" id="form">
-            <form method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="input-wrapper">
-
-                    <div class="myflex myflex-col myflex-center mygap-20">
-                        <div class="myflex myflex-col myflex-center">
-                            <box-icon animation="tada-hover" size="md" name='upload'></box-icon>
-                            <span style="font-weight: 700; font-size: 1.3rem">Drag and Drop files to be imported</span>
-                            <span style="font-weight: 700;">or</span>
-                            <label id="browse-files" for="inputGroupFile01">Browse Files</label>
+    <div class="container vh-100">
+        <div class="row h-100 align-items-center justify-content-center">
+            <div class="form-container col-md-5">
+                <div class="row tr">
+                    <!-- top section of the import form -->
+                    <div style="border-color: lightgrey;" class="col-12 p-2 border-bottom">
+                        <div>
+                            <span class="ms-2">Import Form</span>
                         </div>
-                        <div class="myflex myflex-col myflex-center">
-                            <span style="color: #afafaf">[ only xlsx, xls, csv formats are supported ]</span>
-                            <span style="color: #afafaf">Maximum upload file size is 10 MB.</span>
+                        <div class="d-flex justify-content-center mt-3 mb-1">
+                            <span style="font-size: 0.8rem;">Download The Import Template</span>
                         </div>
-                        <!-- <input type="file" id="file" name="file" accept="xls, xlsx, csv"> -->
-                        <label for="inputGroupFile01">
-                            <input type="file" name="file" class="form-control" id="inputGroupFile01" hidden>
-                        </label>
-                        <button id="upload-button" class="button-69">Upload</button>
-                        <span><a href="#">↓ Download Sample Template for Import ↓</a></span>
+                        <div class="d-flex justify-content-center download-file-area mb-2">
+                            <div style="width: 75%; border-color: lightgrey;"
+                                class="d-flex justify-content-between border rounded pt-3 pb-3 ps-2 pe-2">
+                                <div class="d-flex gap-2 file-info">
+                                    <span class="file-icon">
+                                        <i style="color: darkgreen;" class="fa-regular fa-file-excel fa-2xl"></i>
+                                    </span>
+                                    <span class="file-name">
+                                        LLP_Costs_Template_File.xlsx
+                                    </span>
+                                </div>
+                                <span class="download-button">
+                                    <i style="color: blue;" class="fa-solid fa-cloud-arrow-down me-2"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
+
+
+                    
+                    <!-- middle section of the import form -->
+                    <div class="col-12">
+
+                    </div>
+
+
+
+                
+                    <!-- bottom section of the import form -->
+                    <div class="col-12"></div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </body>
