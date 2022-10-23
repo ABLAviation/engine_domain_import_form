@@ -25,12 +25,9 @@
 
             <div class=" col-md-5 p-0">
                 <div class="d-flex flex-column gap-2">
-                    <div class="row form-group">
-                        <div style="height 30px; background: #fac8c788; color: #555" id="feedback-alert" class="col border border-danger rounded p-2">
-                            <div class="d-flex justify-content-between p-2">
-                                <span class="feedback-message">Something went wrong!</span>
-                                <span style="cursor: pointer;" class="feedback-close"><i class="fa-solid fa-xmark"></i></span>
-                            </div>
+                    <div class="row">
+                        <div style="padding: 0;" id="feedback-wrapper" class=" ">
+
                         </div>
                     </div>
                     <div class="row form-container">

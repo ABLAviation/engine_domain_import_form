@@ -5,6 +5,16 @@ import './bootstrap';
 
 $(document).ready(function () {
 
+    function extensionCheck(file){
+
+        let validExtensions = ['xlsx', 'xls', 'csv'];
+        if (!validExtensions.includes(file.name.split('.').pop())) {
+            return 0;
+        }
+    
+        return 1;
+    }
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -12,6 +22,7 @@ $(document).ready(function () {
     });
 
     let file;
+    let alertMessage;
 
     //Download Template file code
     $('.download-button').on('click', function(){
@@ -30,16 +41,37 @@ $(document).ready(function () {
         event.preventDefault();
         $("#form").removeClass('dragging');
         $(".upload-image").addClass('hidden');
-        let validExtensions = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel', 'text/csv'];
         file = event.originalEvent.dataTransfer.files[0];
 
-        if (!validExtensions.includes(file.type)) {
-            alert('Wrong file extension!');
+        let extensionCheckBool = extensionCheck(file);
+
+        //failed extension test.
+        if(!extensionCheckBool){
+            console.log(file);
+            alertMessage = "The <strong>." + file.name.split('.').pop() + "</strong> is a wrong file type! Please import only [xlsx, xls, csv]."
+            file = {};
+  
+            $('#feedback-wrapper').html(`
+            <div style="height 30px; background: #fac8c788; color: #555" id="feedback-alert" class="col border border-danger rounded p-2">
+
+            <div class="d-flex justify-content-between align-items-center p-2">
+            <div class="d-flex w-75 justify-content-start align-items-center gap-2">
+                <span class="feeback-icon"><i style="transform: rotate(90deg); color: #cf7c76" class="fa-solid fa-ban fa-lg"></i></span>
+                <span class="feedback-message">`+ alertMessage +`</span>
+            </div>
+            <div class="d-flex justify-content-end">
+                <span style="cursor: pointer; color: #555" class="feedback-close"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+        </div>
+        </div>
+            `);
+            $(".import-progress").addClass('d-hidden');
+        }else{
+            $(".uploaded-file-name").html(file.name);
+            $(".import-progress").removeClass('d-hidden');
+            $('#feedback-alert').remove();
         }
-        // console.log(file);
         
-        $(".uploaded-file-name").html(file.name);
-        $(".import-progress").removeClass('d-hidden');
     })
     $('#form').on('dragenter', function (event) {
         event.preventDefault();
@@ -56,9 +88,32 @@ $(document).ready(function () {
 
     $('#inputGroupFile01').on('change', function(){
         file = this.files[0];
-        
-        $(".uploaded-file-name").html(file.name);
-        $(".import-progress").removeClass('d-hidden');
+
+        //failed extension test.
+        if(!extensionCheck(file)){
+            alertMessage = "The <strong>." + file.name.split('.').pop() + "</strong> is a wrong file type! Please import only [xlsx, xls, csv]."
+            file = {};
+            $(this).val = "";
+            $('#feedback-wrapper').html(`
+            <div style="height 30px; background: #fac8c788; color: #555" id="feedback-alert" class="col border border-danger rounded p-2">
+            <div class="d-flex justify-content-between align-items-center p-2">
+            <div class="d-flex w-75 justify-content-start align-items-center gap-2">
+                <span class="feeback-icon"><i style="transform: rotate(90deg); color: #cf7c76" class="fa-solid fa-ban fa-lg"></i></span>
+                <span class="feedback-message">`+ alertMessage +`</span>
+            </div>
+            <div class="d-flex justify-content-end">
+                <span style="cursor: pointer; color: #555" class="feedback-close"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+        </div>
+        </div>
+            `);
+            $(".import-progress").addClass('d-hidden');
+        }else{
+            $(".uploaded-file-name").html(file.name);
+            $(".import-progress").removeClass('d-hidden');
+            $('#feedback-alert').remove();
+        }
+
     });
 
     $('.cancel-button').on('click', function(){
@@ -79,10 +134,46 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function(data){
+                //Success upload case.
+                alertMessage = "Data imported succesfully!"
+                file = {};
+                $('#feedback-wrapper').html(`
+                <div style="height 30px; background: #daf1d5; color: #555" id="feedback-alert" class="col border border-success rounded p-2">
 
+                <div class="d-flex justify-content-between align-items-center p-2">
+                <div class="d-flex w-75 justify-content-start align-items-center gap-2">
+                    <span class="feeback-icon"><i style="color: #99bea0;" class="fa-solid fa-check fa-lg"></i></i></span>
+                    <span class="feedback-message">`+ alertMessage +`</span>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <span style="cursor: pointer; color: #555" class="feedback-close"><i class="fa-solid fa-xmark"></i></span>
+                </div>
+            </div>
+            </div>
+                `);
+                $(".import-progress").addClass('d-hidden');
             },
             error: function (error) {
-                // console.log(error);
+                console.log(error);
+                if(file === {}){
+                    alertMessage = "Select file for import first!"
+                    file = {};
+                    $(this).val = "";
+                    $('#feedback-wrapper').html(`
+                    <div style="height 30px; background: #fac8c788; color: #555" id="feedback-alert" class="col border border-danger rounded p-2">
+                    <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="d-flex w-75 justify-content-start align-items-center gap-2">
+                        <span class="feeback-icon"><i style="transform: rotate(90deg); color: #cf7c76" class="fa-solid fa-ban fa-lg"></i></span>
+                        <span class="feedback-message">`+ alertMessage +`</span>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <span style="cursor: pointer; color: #555" class="feedback-close"><i class="fa-solid fa-xmark"></i></span>
+                    </div>
+                </div>
+                </div>
+                    `);
+                }
+
             }
         });
 
@@ -111,7 +202,7 @@ $(document).ready(function () {
     });
 
 
-    $('.feedback-close').on('click', function(){
+    $(document).on('click', '.feedback-close', function(){
         // console.log('removing...');
         $('#feedback-alert').remove();
     });
