@@ -111,6 +111,11 @@ $(document).ready(function () {
     });
 
 
+    $('.feedback-close').on('click', function(){
+        // console.log('removing...');
+        $('#feedback-alert').remove();
+    });
+
 
 
 

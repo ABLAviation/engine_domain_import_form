@@ -22,114 +22,145 @@
 <body class="antialiased">
     <div class="container-fluid vh-100">
         <div class="row h-100 align-items-center justify-content-center">
-            <div class="form-container col-md-5">
-                <div class="row tr">
-                    <!-- top section of the import form -->
-                    <div style="border-color: lightgrey;" class="col-12 p-2 border-bottom">
-                        <div>
-                            <span style="color: #647CA7;" class="ms-2">Import Form</span>
-                        </div>
-                        <div class="d-flex justify-content-center mt-3 mb-1">
-                            <span style="font-size: 0.8rem;">Download The Import Template</span>
-                        </div>
-                        <a id="download-template" href="files/LLP_Costs_Templates.xlsx"
-                            class="d-flex justify-content-center download-file-area mb-2" download>
-                            <div style="width: 75%; border-color: lightgrey;"
-                                class="download-button d-flex align-items-center justify-content-between border rounded pt-3 pb-3 ps-2 pe-2">
-                                <div class="d-flex gap-2 align-items-center file-info">
-                                    <!-- <i style="color: darkgreen;" class="fa-regular fa-file-excel fa-2xl"></i> -->
-                                    <img style="width: 30px;" src="images/xlsx_icon.png">
-                                    <span class="file-name">
-                                        LLP_Costs_Template.xlsx
-                                    </span>
-                                </div>
-                                <span class="download-button">
-                                    <i style="color: #9156b7;" class="fa-solid fa-cloud-arrow-down me-2"></i>
-                                </span>
-                                <!-- <a id="download-template" href="files/LLP_Costs_Template.xlsx" download></a> -->
-                            </div>
-                        </a>
-                    </div>
 
-
-
-
-                    <!-- middle section of the import form -->
-                    <div style="border-color: lightgrey;" class="col-12 my-2 border-bottom">
-                        <div class="d-flex justify-content-center">
-                            <div style="font-size: 0.8rem" class="d-flex w-75 justify-content-center px-2">
-                                <span style="color: #00C3FF;" class="me-1"><i
-                                        class="fa-solid fa-circle-info"></i></span>
-                                <span style="color: #ABB9D4;">File import should not be more than 10MB. Only the
-                                    <strong>.xls</strong>, <strong>.xlsx</strong> and <strong>.csv</strong> file types
-                                    are allowed.</span>
-                            </div>
-                        </div>
-                        <div style="font-weight: 600; color: #647CA7;" class="d-flex justify-content-center mt-3 mb-2">
-                            Upload the LLP Costs Data
-                        </div>
-                        <div class="d-flex w-100 justify-content-center">
-                            <div id="form" style="width: 75%;"
-                                class="import-area d-flex flex-column align-items-center rounded">
-
-                                <div style="position: relative;; z-index: 2" class="upload-files-images d-flex mt-3">
-                                    <img style="width: 180px;" src="images/import_files.png" alt="">
-                                </div>
-                                <div style="position: relative;; z-index: 2"
-                                    class="upload-options d-flex flex-column align-items-center">
-                                    <div>
-                                        <span style="font-weight: 600; font-size: 1.2rem">Drag & Drop file to
-                                            upload</span>
-                                    </div>
-                                    <div>
-                                        <span style="font-weight: 400; font-size: 1rem">or</span>
-                                    </div>
-                                    <div>
-                                        <button style="background: #9156b7; color: white; font-size: 0.8rem"
-                                            class="select-file-button border rounded px-2">
-                                            <span class="plus-icon">+</span>
-                                            <span>Select the file</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div style="opacity: 0.15; " class="background-image position-absolute">
-                                    <i class="fa-solid fa-cloud-arrow-up fa-10x"></i>
-                                </div>
-                                <div class="upload-image hidden position-absolute">
-                                    <i style="color: #9156b733;" class="fa-solid fa-file-arrow-up fa-10x"></i>
-                                </div>
-                                <input id="inputGroupFile01" type="file" class="upload-file-input" hidden>
-                            </div>
-                        </div>
-                        <div style="font-size: 0.7rem; color: white;" class="d-flex justify-content-center mb-3 mt-2 ">
-                            <div style="border-radius: 3px; border-color: lightgrey; background: #a776c5"
-                                class="import-progress d-flex w-75 justify-content-between border py-1 px-2 d-hidden">
-                                <div class=" d-flex">
-                                    <span class="uploaded-file-name me-1">
-                                        RR_LLP_Costs_Data_2022.xlsx
-                                    </span>
-                                    <span class="uploaded-check-text"> ▪ Ready for upload</span>
-                                </div>
-                                <span class="check-icon">
-                                    <i  class="fa-solid fa-check"></i>
-                                </span>
+            <div class=" col-md-5 p-0">
+                <div class="d-flex flex-column gap-2">
+                    <div class="row form-group">
+                        <div style="height 30px; background: #fac8c788; color: #555" id="feedback-alert" class="col border border-danger rounded p-2">
+                            <div class="d-flex justify-content-between p-2">
+                                <span class="feedback-message">Something went wrong!</span>
+                                <span style="cursor: pointer;" class="feedback-close"><i class="fa-solid fa-xmark"></i></span>
                             </div>
                         </div>
                     </div>
-
-
-
-
-                    <!-- bottom section of the import form -->
-                    <div class="col-12">
-                        <div style="font-size: 0.8rem" class="d-flex gap-2 justify-content-end p-1 mb-2">
-                            <div class="cancel-button">
-                                <button style="color: inherit; font-weight: 500;"
-                                    class="py-1 px-3 border rounded">Cancel</button>
+                    <div class="row form-container">
+                        <!-- top section of the import form -->
+                        <div style="border-color: lightgrey;" class="col-12 p-2 border-bottom">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span style="color: #647CA7;" class="ms-2">Import Form</span>
+                                <div style="color: #647CA7; font-size: 0.7rem" class="d-flex gap-1 me-2 ">
+                                    <span style="color: limegreen; font-size: 0.6rem; line-height: 1.1rem"
+                                        class="user-status"><i class="fa-solid fa-circle"></i></span>
+                                    <span class="username">Lawerence Estorque</span>
+                                </div>
                             </div>
-                            <div id="upload-button" class="upload-button">
-                                <button style="background: #9156b7; color: white;"
-                                    class="py-1 px-3 border rounded">Upload</button>
+                            <div class="d-flex justify-content-center mt-3 mb-1">
+                                <span style="font-size: 0.8rem;">Download The Import Template</span>
+                            </div>
+                            <a id="download-template" href="files/LLP_Costs_Templates.xlsx"
+                                class="d-flex justify-content-center download-file-area mb-2" download>
+                                <div style="width: 75%; border-color: lightgrey;"
+                                    class="download-button d-flex align-items-center justify-content-between border rounded pt-3 pb-3 ps-2 pe-2">
+                                    <div class="d-flex gap-2 align-items-center file-info">
+                                        <!-- <i style="color: darkgreen;" class="fa-regular fa-file-excel fa-2xl"></i> -->
+                                        <img style="width: 30px;" src="images/xlsx_icon.png">
+                                        <span class="file-name">
+                                            LLP_Costs_Template.xlsx
+                                        </span>
+                                    </div>
+                                    <span class="download-button">
+                                        <i style="color: #9156b7;" class="fa-solid fa-cloud-arrow-down me-2"></i>
+                                    </span>
+                                    <!-- <a id="download-template" href="files/LLP_Costs_Template.xlsx" download></a> -->
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+                        <!-- middle section of the import form -->
+                        <div style="border-color: lightgrey;" class="col-12 my-2 border-bottom">
+                            <div class="d-flex justify-content-center">
+                                <div style="font-size: 0.8rem" class="d-flex w-75 justify-content-center px-2">
+                                    <span style="color: #00C3FF;" class="me-1"><i
+                                            class="fa-solid fa-circle-info"></i></span>
+                                    <span style="color: #ABB9D4;">File import should not be more than 10MB. Only the
+                                        <strong>.xls</strong>, <strong>.xlsx</strong> and <strong>.csv</strong> file
+                                        types
+                                        are allowed.</span>
+                                </div>
+                            </div>
+                            <div style="font-weight: 600; color: #647CA7;"
+                                class="d-flex justify-content-center mt-3 mb-2">
+                                Upload the LLP Costs Data
+                            </div>
+                            <div class="d-flex w-100 justify-content-center">
+                                <div id="form" style="width: 75%;"
+                                    class="import-area d-flex flex-column align-items-center rounded">
+
+                                    <div style="position: relative;; z-index: 2"
+                                        class="upload-files-images d-flex mt-3">
+                                        <img style="width: 180px;" src="images/import_files.png" alt="">
+                                    </div>
+                                    <div style="position: relative;; z-index: 2"
+                                        class="upload-options d-flex flex-column align-items-center">
+                                        <div>
+                                            <span style="font-weight: 600; font-size: 1.2rem">Drag & Drop file to
+                                                upload</span>
+                                        </div>
+                                        <div>
+                                            <span style="font-weight: 400; font-size: 1rem">or</span>
+                                        </div>
+                                        <div>
+                                            <button style="background: #9156b7; color: white; font-size: 0.8rem"
+                                                class="select-file-button border rounded px-2">
+                                                <span class="plus-icon">+</span>
+                                                <span>Select the file</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div style="opacity: 0.15; " class="background-image position-absolute">
+                                        <i class="fa-solid fa-cloud-arrow-up fa-10x"></i>
+                                    </div>
+                                    <div class="upload-image hidden position-absolute">
+                                        <i style="color: #9156b733;" class="fa-solid fa-file-arrow-up fa-10x"></i>
+                                    </div>
+                                    <input id="inputGroupFile01" type="file" class="upload-file-input" hidden>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.7rem; color: white;"
+                                class="d-flex justify-content-center mb-3 mt-2 ">
+                                <div style="border-radius: 3px; border-color: lightgrey; background: #a776c5"
+                                    class="import-progress d-flex w-75 justify-content-between border py-1 px-2 d-hidden">
+                                    <div class=" d-flex">
+                                        <span class="uploaded-file-name me-1">
+                                            RR_LLP_Costs_Data_2022.xlsx
+                                        </span>
+                                        <span class="uploaded-check-text"> ▪ Ready for upload</span>
+                                    </div>
+                                    <span class="check-icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- bottom section of the import form -->
+                        <div class="col-12">
+                            <div style="font-size: 0.8rem"
+                                class="d-flex gap-2 justify-content-between align-items-center p-1 mb-2">
+                                <div class="d-flex">
+                                    <span style="min-width: 40px;"
+                                        class="d-flex justify-content-center logout-button border rounded p-1">
+                                        <i style="transform: rotate(0eg); font-size: 1rem;"
+                                            class="fa-solid fa-arrow-left"></i>
+                                        <!-- <i class="fa-solid fa-arrow-right"></i> -->
+                                    </span>
+                                </div>
+                                <div class="d-flex justify-content-center gap-1">
+                                    <div class="cancel-button">
+                                        <button style="color: inherit; font-weight: 500;"
+                                            class="py-1 px-3 border rounded">Cancel</button>
+                                    </div>
+                                    <div id="upload-button" class="upload-button">
+                                        <button style="background: #9156b7; color: white;"
+                                            class="py-1 px-3 border rounded">Upload</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

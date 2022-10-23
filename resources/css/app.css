@@ -65,6 +65,11 @@ a, a:focus, a:hover{
     display: none !important;
 }
 
+
+.logout-button:hover{
+    background-color: #C8D4E822;
+    cursor: pointer;
+}
 /* Button CSS */
 /* .button-69 {
   background-color: initial;
