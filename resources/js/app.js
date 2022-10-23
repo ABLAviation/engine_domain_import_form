@@ -13,29 +13,42 @@ $(document).ready(function () {
 
     let file;
 
-
+    //Download Template file code
     $('.download-button').on('click', function(){
-        console.log('okk');
+
         $('#download-template').click();
     });
+
+    //Open file browser on "Select file" click
+    $('.select-file-button').on('click', function(){
+
+        $('.upload-file-input').click();
+        
+    });
+
     $('#form').on('drop dragdrop', function (event) {
         event.preventDefault();
         $("#form").removeClass('dragging');
+        $(".upload-image").addClass('hidden');
         let validExtensions = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel', 'text/csv'];
         file = event.originalEvent.dataTransfer.files[0];
 
         if (!validExtensions.includes(file.type)) {
             alert('Wrong file extension!');
         }
-
-
+        // console.log(file);
+        
+        $(".uploaded-file-name").html(file.name);
+        $(".import-progress").removeClass('d-hidden');
     })
     $('#form').on('dragenter', function (event) {
         event.preventDefault();
         $("#form").addClass('dragging');
+        $(".upload-image").removeClass('hidden');
     })
     $('#form').on('dragleave', function () {
         $("#form").removeClass('dragging');
+        $(".upload-image").addClass('hidden');
     })
     $('#form').on('dragover', function (event) {
         event.preventDefault();
@@ -43,7 +56,15 @@ $(document).ready(function () {
 
     $('#inputGroupFile01').on('change', function(){
         file = this.files[0];
-        console.log(file);
+        
+        $(".uploaded-file-name").html(file.name);
+        $(".import-progress").removeClass('d-hidden');
+    });
+
+    $('.cancel-button').on('click', function(){
+        file = {};
+        console.log('Cancel');
+        $(".import-progress").addClass('d-hidden');
     });
 
     $('#upload-button').on('click', function (e) {
@@ -58,12 +79,14 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function(data){
-                console.log(data);
+
             },
             error: function (error) {
-                console.log(error);
+                // console.log(error);
             }
         });
+
+
 
 
         // var reader = new FileReader();

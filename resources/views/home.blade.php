@@ -20,7 +20,7 @@
 </head>
 
 <body class="antialiased">
-    <div class="container vh-100">
+    <div class="container-fluid vh-100">
         <div class="row h-100 align-items-center justify-content-center">
             <div class="form-container col-md-5">
                 <div class="row tr">
@@ -69,7 +69,8 @@
                             Upload the LLP Costs Data
                         </div>
                         <div class="d-flex w-100 justify-content-center">
-                            <div style="width: 75%;" class="import-area d-flex flex-column align-items-center rounded">
+                            <div id="form" style="width: 75%;"
+                                class="import-area d-flex flex-column align-items-center rounded">
 
                                 <div style="position: relative;; z-index: 2" class="upload-files-images d-flex mt-3">
                                     <img style="width: 180px;" src="images/import_files.png" alt="">
@@ -85,7 +86,7 @@
                                     </div>
                                     <div>
                                         <button style="background: #9156b7; color: white; font-size: 0.8rem"
-                                            class="border rounded px-2">
+                                            class="select-file-button border rounded px-2">
                                             <span class="plus-icon">+</span>
                                             <span>Select the file</span>
                                         </button>
@@ -94,19 +95,23 @@
                                 <div style="opacity: 0.15; " class="background-image position-absolute">
                                     <i class="fa-solid fa-cloud-arrow-up fa-10x"></i>
                                 </div>
+                                <div class="upload-image hidden position-absolute">
+                                    <i style="color: #9156b733;" class="fa-solid fa-file-arrow-up fa-10x"></i>
+                                </div>
+                                <input id="inputGroupFile01" type="file" class="upload-file-input" hidden>
                             </div>
                         </div>
-                        <div style="font-size: 0.7rem; color: white;" class="d-flex justify-content-center mb-3 mt-2">
+                        <div style="font-size: 0.7rem; color: white;" class="d-flex justify-content-center mb-3 mt-2 ">
                             <div style="border-radius: 3px; border-color: lightgrey; background: #a776c5"
-                                class="d-flex w-75 justify-content-between border py-1 px-2">
-                                <div class="d-flex">
+                                class="import-progress d-flex w-75 justify-content-between border py-1 px-2 d-hidden">
+                                <div class=" d-flex">
                                     <span class="uploaded-file-name me-1">
                                         RR_LLP_Costs_Data_2022.xlsx
                                     </span>
-                                    <span class="uploaded-check-text"> ▪ Uploaded</span>
+                                    <span class="uploaded-check-text"> ▪ Ready for upload</span>
                                 </div>
                                 <span class="check-icon">
-                                    <i class="fa-solid fa-check"></i>
+                                    <i  class="fa-solid fa-check"></i>
                                 </span>
                             </div>
                         </div>
@@ -122,7 +127,7 @@
                                 <button style="color: inherit; font-weight: 500;"
                                     class="py-1 px-3 border rounded">Cancel</button>
                             </div>
-                            <div class="upload-button">
+                            <div id="upload-button" class="upload-button">
                                 <button style="background: #9156b7; color: white;"
                                     class="py-1 px-3 border rounded">Upload</button>
                             </div>

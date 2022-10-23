@@ -31,6 +31,15 @@ body{
     z-index: 1;
 }
 
+.upload-image{
+    bottom: 15px;
+    z-index: 4;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
 a, a:focus, a:hover{
     text-decoration: none;
     color: inherit;
@@ -39,6 +48,21 @@ a, a:focus, a:hover{
 .download-button:hover, .download-button i:hover{
     background: transparent;
     color: inherit;
+}
+
+
+.dragging{
+    border: 2px dotted #77346d;
+}
+
+.dragging .background-image,
+.dragging .upload-options,
+.dragging .upload-files-images  {
+    opacity: 0.01 !important;
+}
+
+.d-hidden{
+    display: none !important;
 }
 
 /* Button CSS */
