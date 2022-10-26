@@ -1,6 +1,17 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: #AC58B7;
+}
+  
+::selection {
+    color: white;
+    background: #AC58B7;
+}
+
 body{
-    background: #EEF2FC;
+    background: #EEF2FC66;
     color: #93A5C8;
 }
 
@@ -23,7 +34,7 @@ body{
     cursor: pointer;
 }
 
-.download-file-area .download-button:hover{
+.download-template:hover{
     background:  #C8D4E822;
 }
 .background-image{
@@ -45,7 +56,7 @@ a, a:focus, a:hover{
     color: inherit;
 }
 
-.download-button:hover, .download-button i:hover{
+.download-button:hover{
     background: transparent;
     color: inherit;
 }
@@ -69,6 +80,12 @@ a, a:focus, a:hover{
 .logout-button:hover{
     background-color: #C8D4E822;
     cursor: pointer;
+}
+
+
+
+#form div{
+    pointer-events: none;
 }
 /* Button CSS */
 /* .button-69 {

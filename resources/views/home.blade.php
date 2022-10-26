@@ -23,7 +23,7 @@
     <div class="container-fluid vh-100">
         <div class="row h-100 align-items-center justify-content-center">
 
-            <div class=" col-md-5 p-0">
+            <div class="col-xl-4 col-lg-5 col-md-7 col-sm-8">
                 <div class="d-flex flex-column gap-2">
                     <div class="row">
                         <div style="padding: 0;" id="feedback-wrapper" class=" ">
@@ -34,7 +34,7 @@
                         <!-- top section of the import form -->
                         <div style="border-color: lightgrey;" class="col-12 p-2 border-bottom">
                             <div class="d-flex justify-content-between align-items-center">
-                                <span style="color: #647CA7;" class="ms-2">Import Form</span>
+                                <span style="color: #647CA7; user-select: none;" class="ms-2" >Import Form</span>
                                 <div style="color: #647CA7; font-size: 0.7rem" class="d-flex gap-1 me-2 ">
                                     <span style="color: limegreen; font-size: 0.6rem; line-height: 1.1rem"
                                         class="user-status"><i class="fa-solid fa-circle"></i></span>
@@ -100,7 +100,7 @@
                                             <span style="font-weight: 400; font-size: 1rem">or</span>
                                         </div>
                                         <div>
-                                            <button style="background: #9156b7; color: white; font-size: 0.8rem"
+                                            <button style="background: #9156b7; color: white; font-size: 0.8rem; pointer-events: auto;"
                                                 class="select-file-button border rounded px-2">
                                                 <span class="plus-icon">+</span>
                                                 <span>Select the file</span>

@@ -23,10 +23,10 @@ class CostImport implements WithMultipleSheets
 
             // 'SOURCES'  => new SourceImport(),
             // 'ENG-MOD'  => new EngModImport(),
-            'MODULES'  => new ModuleImport(),
+            //'MODULES'  => new ModuleImport(),
             // 'ENG-FACT' => new EngFactImport(),
             // 'ENG-EPR'  => new EngEPRImport(),
-            // 'ENG-LLP'  => new EngLLPImport(),
+            'ENG-LLP'  => new EngLLPImport(),
 
         ];
     }
