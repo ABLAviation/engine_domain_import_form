@@ -26,10 +26,10 @@ class EngModImport implements ToCollection, WithHeadingRow
                 //Data Arry
                 $data[] = [
 
-                'ID_ENGINE_SERIES' => $row['id_engine_serie'],
-                'ID_ESN' => $row['id_esn'],
-                'MODEL_CAPTION'=> $row['model_caption'],
-                'ENGINE_VARIANT' => $row['engine_variant'],
+                'ID_ENGINE_SERIES' => $row['id_engine_serie'] ?? Null,
+                // 'ID_ESN' => $row['id_esn'] ?? Null,
+                'MODEL_CAPTION'=> $row['model_caption'] ?? Null,
+                'ENGINE_VARIANT' => $row['engine_variant'] ?? Null,
                 'CreatedBy' => 'Manal',
                 'CreationDate' => now(),
                 'ModifiedBy'=> 'Manal',
@@ -42,7 +42,7 @@ class EngModImport implements ToCollection, WithHeadingRow
             }
             catch(Exception $e){
 
-                dd($row, $e);
+                // dd($row, $e);
 
             }
             

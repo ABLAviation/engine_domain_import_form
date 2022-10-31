@@ -19,13 +19,14 @@ class CostImport implements WithMultipleSheets
 
     public function sheets(): array
     {
+        // dd(getDate(strtotime(now()->format('d-m-Y'))));
         return [
 
-            // 'SOURCES'  => new SourceImport(),
-            // 'ENG-MOD'  => new EngModImport(),
-            //'MODULES'  => new ModuleImport(),
-            // 'ENG-FACT' => new EngFactImport(),
-            // 'ENG-EPR'  => new EngEPRImport(),
+            'SOURCES'  => new SourceImport(),
+            'ENG-MOD'  => new EngModImport(),
+            'MODULES'  => new ModuleImport(),
+            'ENG-FACT' => new EngFactImport(),
+            'ENG-EPR'  => new EngEPRImport(),
             'ENG-LLP'  => new EngLLPImport(),
 
         ];

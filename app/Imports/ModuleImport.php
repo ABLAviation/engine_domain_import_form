@@ -23,10 +23,10 @@ class ModuleImport implements ToCollection, WithHeadingRow
 
                 $data[] = [
 
-                'Module_Caption' => $row['module_caption'],
-                'Commercial_Name' => $row['commercial_name'],
-                'EngineModel_ID'=> $row['id_engine_model'],
-                'ModuleSplit_percentage_overhaulEngine' => $row['moduleSplit_percentage_overhaul_engine'],
+                'Module_Caption' => $row['module_caption'] ?? Null,
+                'Commercial_Name' => $row['commercial_name'] ?? Null,
+                'EngineModel_ID'=> $row['id_engine_model'] ?? Null,
+                'ModuleSplit_percentage_overhaulEngine' => $row['modulesplit_percentage_overhaul_engine'] ?? Null,
                 'CreatedBy' => 'Salah',
                 'CreationDate' => now(),
                 'ModifiedBy'=> 'Salah',
@@ -36,7 +36,7 @@ class ModuleImport implements ToCollection, WithHeadingRow
 
             }
             catch(Exception $e){
-                dd($row, $e);
+                // dd($row, $e);
             }
             
         }

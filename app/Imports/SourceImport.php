@@ -21,11 +21,11 @@ class SourceImport implements ToCollection, WithHeadingRow
             try{
                 $data[] = [
 
-                'Company_Name' => $row['company_name'],
-                'Company_Catagory' => $row['company_catagory'],
-                'Company_Type'=> $row['company_type'],
-                'Company_Address' => $row['company_address'],
-                'Company_Status' => $row['company_status'],
+                'Company_Name' => $row['company_name'] ?? null, 
+                'Company_Catagory' => $row['company_catagory'] ?? null, 
+                'Company_Type'=> $row['company_type'] ?? null, 
+                'Company_Address' => $row['company_address'] ?? null, 
+                'Company_Status' => $row['company_status'] ?? null, 
                 'CreatedBy' => 'Manal',
                 'CreationDate' => now(),
                 'ModifiedBy'=> 'Manal',
@@ -36,7 +36,7 @@ class SourceImport implements ToCollection, WithHeadingRow
             
             }
             catch(Exception $e){
-                dd($row, $e);
+                // dd($row, $e);
             }
             
         }
@@ -44,6 +44,7 @@ class SourceImport implements ToCollection, WithHeadingRow
         $table = \DB::table('SOURCES_LIST');
         $table->insert($data);
 
+        
 
     }
 

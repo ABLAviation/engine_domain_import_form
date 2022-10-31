@@ -12,6 +12,7 @@ class EngEPRImport implements ToCollection, WithHeadingRow
     /**
     * @param Collection $collection
     */
+    
     public function collection(Collection $collection)
     {
      
@@ -23,23 +24,23 @@ class EngEPRImport implements ToCollection, WithHeadingRow
             try{
                 $data[] = [
 
-                'ID_EngineModel' => $row['id_engine_model'],
-                'ID_SOURCE' => $row['id_source'],
-                'ID_MODULE'=> $row['id_module'],
-                'ID_OPERATOR' => $row['id_operator'],
-                'ID_EVENT_UNIT' => $row['id_event_unit'],
-                'DateOfSourceDATA' => $row['date_of_source_data'],
-                'EPR_COST_MIN'=> $row['epr_min_cost'],
-                'EPR_COST_MAX' => $row['epr_max_cost'],
-                'MTBR_MIN' => $row['min_mtbr'],
-                'MTBR_MAX' => $row['max_mtbr'],
-                'MATERIAL_COST_MIN'=> $row['material_min_cost'],
-                'MATERIAL_COST_MAX' => $row['material_max_cost'],
-                'LABOUR_COST_MIN' => $row['labour_min_cost'],
-                'LABOUR_COST_MAX' => $row['labour_max_cost'],
-                'ID_CURRENCY'=> $row['id_currency'],
-                'ID_EngineFactors' => $row['id_engine_factors'],
-                'Engine_CostperMH' => $row['engine_cost_per_mh'],
+                'ID_EngineModel' => $row['id_engine_model'] ?? Null,
+                'ID_SOURCE' => $row['id_source'] ?? Null,
+                'ID_MODULE'=> $row['id_module'] ?? Null,
+                'ID_OPERATOR' => $row['id_operator'] ?? Null,
+                'ID_EVENT_UNIT' => $row['id_event_unit'] ?? Null,
+                'DateOfSourceDATA' => date('d-m-Y', strtotime($row['date_of_source_data'])) ?? null,
+                'EPR_COST_MIN'=> $row['epr_min_cost'] ?? Null,
+                'EPR_COST_MAX' => $row['epr_max_cost'] ?? Null,
+                'MTBR_MIN' => $row['min_mtbr'] ?? Null,
+                'MTBR_MAX' => $row['max_mtbr'] ?? Null,
+                'MATERIAL_COST_MIN'=> $row['material_min_cost'] ?? Null,
+                'MATERIAL_COST_MAX' => $row['material_max_cost'] ?? Null,
+                'LABOUR_COST_MIN' => $row['labour_min_cost'] ?? Null,
+                'LABOUR_COST_MAX' => $row['labour_max_cost'] ?? Null,
+                'ID_CURRENCY'=> $row['id_currency'] ?? Null,
+                'ID_EngineFactors' => $row['id_engine_factors'] ?? Null,
+                'Engine_CostperMH' => $row['engine_cost_per_mh'] ?? Null,
                 'CreatedBy' => 'Salah',
                 'CreationDate' => now(),
                 'ModifiedBy'=> 'Salah',
@@ -49,12 +50,20 @@ class EngEPRImport implements ToCollection, WithHeadingRow
 
             }
             catch(Exception $e){
-                dd($row, $e);
+                // dd($row, $e);
             }
             
         }
-        $table = \DB::table('ENGINE_EPR_MX');
-        $table->insert($data);
+
+        $data = collect($data);
+        $chunks = $data->chunk(50);
+
+        foreach ($chunks as $chunk){
+            $table = \DB::table('ENGINE_EPR_MX');
+            $table->insert($chunk->toArray());
+        }
+        // $table = \DB::table('ENGINE_EPR_MX');
+        // $table->insert($data);
     }
 
     public function headingRow(): int

@@ -82,7 +82,7 @@ $(document).ready(function () {
     |
     |
     |*/
-    /* */let validExtensions = ['xlsx', 'xls', 'csv']; //list of valid extensions
+    /* */let validExtensions = ['xlsx', 'xls', 'csv', 'xlsm']; //list of valid extensions
     /* */    if (!validExtensions.includes(file.name.split('.').pop())) {
     /* */        return 0; //return 0 if exetnsion is invalid.
     /* */    }
@@ -279,7 +279,7 @@ $(document).ready(function () {
     /* */// II) Handling the Hidden File Input Change Event Start
     /* */$('#inputGroupFile01').on('change', function(){
     /* */    file = this.files[0];
-    /* */
+    /* */    console.log(file);   
     /*->*/// 1) failed extension test.
     /* */   if(!abl_extensionCheck(file)){
     /* */
