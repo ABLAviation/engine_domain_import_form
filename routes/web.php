@@ -13,5 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/{user}', [App\Http\Controllers\Controller::class, 'signIn']);
-Route::get('/', [App\Http\Controllers\Controller::class, 'index']);
-Route::post('/import', [App\Http\Controllers\Controller::class, 'import'])->name('file-import');
+
+Route::middleware('auth')->group( function(){
+    Route::get('/', [App\Http\Controllers\Controller::class, 'index']);
+    Route::post('/api/import', [App\Http\Controllers\Controller::class, 'import'])->name('file-import');
+});
+
+Route::redirect('/login', 'https://52.149.125.127')->name('login');
+
+

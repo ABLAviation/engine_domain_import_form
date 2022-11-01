@@ -12,6 +12,12 @@ class ModuleImport implements ToCollection, WithHeadingRow
     /**
     * @param Collection $collection
     */
+
+    private $authenticatedUser;
+    function __construct($authenticatedUser) {
+        $this->authenticatedUser = $authenticatedUser;
+    }
+
     public function collection(Collection $collection)
     {
      
@@ -27,9 +33,9 @@ class ModuleImport implements ToCollection, WithHeadingRow
                 'Commercial_Name' => $row['commercial_name'] ?? Null,
                 'EngineModel_ID'=> $row['id_engine_model'] ?? Null,
                 'ModuleSplit_percentage_overhaulEngine' => $row['modulesplit_percentage_overhaul_engine'] ?? Null,
-                'CreatedBy' => 'Salah',
+                'CreatedBy' => $this->authenticatedUser->USER_NAME,
                 'CreationDate' => now(),
-                'ModifiedBy'=> 'Salah',
+                'ModifiedBy'=> $this->authenticatedUser->USER_NAME,
                 'ModificationDate' => now()
 
                 ];

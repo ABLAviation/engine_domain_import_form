@@ -38,8 +38,8 @@ class Controller extends BaseController
 
         try{
 
-            $user = \Auth::user();
-            Excel::import(new CostImport($user), $request->file('file'));
+
+            Excel::import(new CostImport(), $request->file('file'));
       
         }
         catch(Exception $e){

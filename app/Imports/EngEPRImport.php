@@ -13,6 +13,13 @@ class EngEPRImport implements ToCollection, WithHeadingRow
     * @param Collection $collection
     */
     
+
+    private $authenticatedUser;
+    function __construct($authenticatedUser) {
+        $this->authenticatedUser = $authenticatedUser;
+    }
+
+
     public function collection(Collection $collection)
     {
      
@@ -41,9 +48,9 @@ class EngEPRImport implements ToCollection, WithHeadingRow
                 'ID_CURRENCY'=> $row['id_currency'] ?? Null,
                 'ID_EngineFactors' => $row['id_engine_factors'] ?? Null,
                 'Engine_CostperMH' => $row['engine_cost_per_mh'] ?? Null,
-                'CreatedBy' => 'Salah',
+                'CreatedBy' => $this->authenticatedUser->USER_NAME,
                 'CreationDate' => now(),
-                'ModifiedBy'=> 'Salah',
+                'ModifiedBy'=> $this->authenticatedUser->USER_NAME,
                 'ModificationDate' => now()
 
                 ];

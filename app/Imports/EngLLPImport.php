@@ -12,6 +12,14 @@ class EngLLPImport implements ToCollection, WithHeadingRow
     /**
     * @param Collection $collection
     */
+
+
+    private $authenticatedUser;
+    function __construct($authenticatedUser) {
+        $this->authenticatedUser = $authenticatedUser;
+    }
+
+
     private function coreModuleCheck($IDModule){
 
         $coreModulesList = ['Core Modules', 'Full stack', 'HPC', 'HPT', 'IPC', 'IPT'];
@@ -70,9 +78,9 @@ class EngLLPImport implements ToCollection, WithHeadingRow
                 'LLP_Global_price' => $row['llp_global_price'] ?? Null,
                 'Core_Module' => $this->coreModuleCheck($row['id_module']) ? 'TRUE' : 'FALSE',
                 'LLP_Order' => $this->getLLPOrder($row['id_engine_model']),
-                'CreatedBy' => 'Salah',
+                'CreatedBy' => $this->authenticatedUser->USER_NAME,
                 'CreationDate' => now(),
-                'ModifiedBy'=> 'Salah',
+                'ModifiedBy'=> $this->authenticatedUser->USER_NAME,
                 'ModificationDate' => now()
 
                 ];

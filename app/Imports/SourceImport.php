@@ -12,6 +12,14 @@ class SourceImport implements ToCollection, WithHeadingRow
     /**
     * @param Collection $collection
     */
+
+    private $authenticatedUser;
+    function __construct($authenticatedUser) {
+        $this->authenticatedUser = $authenticatedUser;
+    }
+    
+
+
     public function collection(Collection $collection)
     {
      
@@ -26,9 +34,9 @@ class SourceImport implements ToCollection, WithHeadingRow
                 'Company_Type'=> $row['company_type'] ?? null, 
                 'Company_Address' => $row['company_address'] ?? null, 
                 'Company_Status' => $row['company_status'] ?? null, 
-                'CreatedBy' => 'Manal',
+                'CreatedBy' => $this->authenticatedUser->USER_NAME,
                 'CreationDate' => now(),
-                'ModifiedBy'=> 'Manal',
+                'ModifiedBy'=> $this->authenticatedUser->USER_NAME,
                 'ModificationDate' => now()
 
                 ];

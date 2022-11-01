@@ -12,6 +12,14 @@ class EngFactImport implements ToCollection, WithHeadingRow
     /**
     * @param Collection $collection
     */
+
+    private $authenticatedUser;
+    function __construct($authenticatedUser) {
+        $this->authenticatedUser = $authenticatedUser;
+    }
+
+
+
     public function collection(Collection $collection)
     {
      
@@ -42,9 +50,9 @@ class EngFactImport implements ToCollection, WithHeadingRow
                 'SPECIFIC_THRUST' => $row['specific_thrust'] ?? null,
                 'SVC' => $row['svc'] ?? null,
                 'TOW' => $row['tow'] ?? null,
-                'CreatedBy' => 'Salah',
+                'CreatedBy' => $this->authenticatedUser->USER_NAME,
                 'CreationDate' => now(),
-                'ModifiedBy'=> 'Salah',
+                'ModifiedBy'=> $this->authenticatedUser->USER_NAME,
                 'ModificationDate' => now()
 
                 ];

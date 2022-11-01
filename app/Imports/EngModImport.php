@@ -12,6 +12,14 @@ class EngModImport implements ToCollection, WithHeadingRow
     /**
     * @param Collection $collection
     */
+
+
+    private $authenticatedUser;
+    function __construct($authenticatedUser) {
+        $this->authenticatedUser = $authenticatedUser;
+    }
+
+
     public function collection(Collection $collection)
     {
         
@@ -30,9 +38,9 @@ class EngModImport implements ToCollection, WithHeadingRow
                 // 'ID_ESN' => $row['id_esn'] ?? Null,
                 'MODEL_CAPTION'=> $row['model_caption'] ?? Null,
                 'ENGINE_VARIANT' => $row['engine_variant'] ?? Null,
-                'CreatedBy' => 'Manal',
+                'CreatedBy' => $this->authenticatedUser->USER_NAME,
                 'CreationDate' => now(),
-                'ModifiedBy'=> 'Manal',
+                'ModifiedBy'=> $this->authenticatedUser->USER_NAME,
                 'ModificationDate' => now()
 
                 ];
