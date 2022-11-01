@@ -38,13 +38,13 @@
                                 <div style="color: #647CA7; font-size: 0.7rem" class="d-flex gap-1 me-2 ">
                                     <span style="color: limegreen; font-size: 0.6rem; line-height: 1.1rem"
                                         class="user-status"><i class="fa-solid fa-circle"></i></span>
-                                    <span class="username">Lawerence Estorque</span>
+                                    <span class="username">{{auth()->user()->USER_NAME}}</span>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center mt-3 mb-1">
                                 <span style="font-size: 0.8rem;">Download The Import Template</span>
                             </div>
-                            <a id="download-template" href="files/LLP_Costs_Templates.xlsx"
+                            <a id="download-template" href="files/LLP_Costs_Templates.xlsm"
                                 class="d-flex justify-content-center download-file-area mb-2" download>
                                 <div style="width: 75%; border-color: lightgrey;"
                                     class="download-button d-flex align-items-center justify-content-between border rounded pt-3 pb-3 ps-2 pe-2">
@@ -52,7 +52,7 @@
                                         <!-- <i style="color: darkgreen;" class="fa-regular fa-file-excel fa-2xl"></i> -->
                                         <img style="width: 30px;" src="images/xlsx_icon.png">
                                         <span class="file-name">
-                                            LLP_Costs_Template.xlsx
+                                            LLP_Costs_Templates.xlsm
                                         </span>
                                     </div>
                                     <span class="download-button">
@@ -73,7 +73,7 @@
                                     <span style="color: #00C3FF;" class="me-1"><i
                                             class="fa-solid fa-circle-info"></i></span>
                                     <span style="color: #ABB9D4;">File import should not be more than 10MB. Only the
-                                        <strong>.xls</strong>, <strong>.xlsx</strong> and <strong>.csv</strong> file
+                                        <strong>.xlsm</strong>, <strong>.xlsx</strong> and <strong>.csv</strong> file
                                         types
                                         are allowed.</span>
                                 </div>

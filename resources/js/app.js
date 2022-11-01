@@ -226,7 +226,7 @@ $(document).ready(function () {
     /*->*/// 1) failed extension test.
     /* */   if(!extensionCheckBool){
     /* */       
-    /* */        abl_alertUser("The <strong>." + file.name.split('.').pop() + "</strong> is a wrong file type! Please import only [xlsx, xls, csv].", 'danger');
+    /* */        abl_alertUser("The <strong>." + file.name.split('.').pop() + "</strong> is a wrong file type! Please import only [xlsx, xlsm, csv].", 'danger');
     /* */   
     /* */   }else{
     /* */
@@ -283,7 +283,7 @@ $(document).ready(function () {
     /*->*/// 1) failed extension test.
     /* */   if(!abl_extensionCheck(file)){
     /* */
-    /* */        abl_alertUser("The <strong>." + file.name.split('.').pop() + "</strong> is a wrong file type! Please import only [xlsx, xls, csv].", 'danger');
+    /* */        abl_alertUser("The <strong>." + file.name.split('.').pop() + "</strong> is a wrong file type! Please import only [xlsx, xlsm, csv].", 'danger');
     /* */   }else{
     /* */       $(".uploaded-file-name").html(file.name);
     /* */       $(".import-progress").removeClass('d-hidden');
