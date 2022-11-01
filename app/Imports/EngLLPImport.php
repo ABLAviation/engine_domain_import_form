@@ -23,19 +23,18 @@ class EngLLPImport implements ToCollection, WithHeadingRow
     }
 
     public $parsedEngineModels = [];
-    public $LLP_ORDER_COUNTER = 0;
+
 
     private function getLLPOrder($IDEngineModel){
-        global $parsedEngineModels;
-        global $LLP_ORDER_COUNTER;
-        if(in_array($IDEngineModel, $this->parsedEngineModels)){
-            return $this->LLP_ORDER_COUNTER + 10;
+
+        if(array_key_exists($IDEngineModel, $this->parsedEngineModels)){
+            $this->parsedEngineModels[$IDEngineModel] += 10;
+
         }else{
-            $this->parsedEngineModels[] = $IDEngineModel;
-            $this->LLP_ORDER_COUNTER = 10;
-            return $this->LLP_ORDER_COUNTER;
+            $this->parsedEngineModels[$IDEngineModel] = 10;
         }
 
+        return $this->parsedEngineModels[$IDEngineModel];
     }
 
     public function collection(Collection $collection)
