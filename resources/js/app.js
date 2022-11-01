@@ -37,7 +37,7 @@ $(document).ready(function () {
     |
     |
     */
-    /*//////*/let file; //Variable that holds the imported file.
+    /*//////*/let file = null; //Variable that holds the imported file.
     /*
     |
     |
@@ -162,7 +162,7 @@ $(document).ready(function () {
             `);
     /* */
     /* */    }
-    /* */    file = {};
+    /* */    file = null;
     /* */    $(".import-progress").addClass('d-hidden');
     /* */
     }
@@ -327,7 +327,7 @@ $(document).ready(function () {
             error: function (error) {
                 console.log(error);
                 console.log(file);
-                if(isEmpty(file)){
+                if(!file){
                     abl_alertUser("Select file for import first!", 'danger');
                 }else{
                     abl_alertUser("Ops! Something went wrong, contact support.", 'danger');
